@@ -40,7 +40,7 @@ class SinglyLinkedList:
         """
         self.head = ListNode(data=data, next=self.head)
 
-    def append(self, data):
+    def append(self, data: object) -> object:
         """
         Insert a new element at the end of the list.
         Takes O(n) time.
