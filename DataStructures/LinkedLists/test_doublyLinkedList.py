@@ -3,7 +3,7 @@ from unittest import TestCase
 
 class TestDoublyLinkedList(TestCase):
     def test_prepend(self):
-        from LinkedLists.DoublyLinkedList import DoublyLinkedList
+        from DataStructures.LinkedLists.DoublyLinkedList import DoublyLinkedList
         dll = DoublyLinkedList()
         dll.prepend(1)
         dll.prepend(2)
@@ -18,7 +18,7 @@ class TestDoublyLinkedList(TestCase):
 
 class TestDoublyLinkedList(TestCase):
     def test_reverse(self):
-        from LinkedLists.DoublyLinkedList import DoublyLinkedList
+        from DataStructures.LinkedLists.DoublyLinkedList import DoublyLinkedList
         dll = DoublyLinkedList()
         for i in range(1,11):
             dll.prepend(i)

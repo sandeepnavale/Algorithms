@@ -1,10 +1,9 @@
 from unittest import TestCase
-from LinkedLists import SingleLinkedList
 
 
 class TestSinglyLinkedList(TestCase):
     def test_append(self):
-        from LinkedLists import SingleLinkedList
+        from DataStructures.LinkedLists import SingleLinkedList
 
         # SingleLinkedList.SinglyLinkedList.prepend(SingleLinkedList.__class__,data=1)
         sll = SingleLinkedList.SinglyLinkedList()
@@ -19,7 +18,7 @@ class TestSinglyLinkedList(TestCase):
 
 class TestSinglyLinkedList(TestCase):
     def test_find(self):
-        from LinkedLists import SingleLinkedList
+        from DataStructures.LinkedLists import SingleLinkedList
         sll = SingleLinkedList.SinglyLinkedList()
         for i in range(1,5):
             sll.prepend(i)
