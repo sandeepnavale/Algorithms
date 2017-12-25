@@ -10,5 +10,5 @@ def pairSum(arr,sum):
     print(h)
 
 if __name__ == '__main__':
-    # print(pairSum([2,3,4,5,6,7,8],7)
+    print(pairSum([2,3,4,5,6,7,8],7))
     print(pairSum([2,3,4,5,6,7,8],11))
