@@ -1,4 +1,5 @@
 from unittest import TestCase
+from random import randint
 
 
 class TestSinglyLinkedList(TestCase):
@@ -15,16 +16,36 @@ class TestSinglyLinkedList(TestCase):
         print(sll)
         self.assertMultiLineEqual(str(sll), '[4, 3, 2, 1]')
 
-
-class TestSinglyLinkedList(TestCase):
     def test_find(self):
         from DataStructures.LinkedLists import SingleLinkedList
         sll = SingleLinkedList.SinglyLinkedList()
-        for i in range(1,5):
-            sll.prepend(i)
+        sll.prepend(1)
+        sll.prepend(2)
+        sll.prepend(3)
+        sll.prepend(4)
 
         print(sll)
-        print(sll.find(2))
+        node = sll.find(2)
+        self.assertEqual(node.data,2)
+        node = sll.find(4)
+        self.assertEqual(node.data, 4)
 
-        # self.assertEqual(sll.find(2),2)
-        # self.asse
+
+    def test_reverse(self):
+        from DataStructures.LinkedLists import SingleLinkedList
+        sll = SingleLinkedList.SinglyLinkedList()
+        ele = [randint(10, 100) for i in range(10)]
+        for i in range(10):
+            sll.append(ele[i])
+        print("TEST REVERSE")
+        print("Original Inputs",ele)
+        print("Inputs in SLL", sll)
+        sll.reverse()
+        print('SLL After reversed',sll)
+        ele.reverse()
+        print('Input reversed',ele)
+        # self.assertAlmostEqual(sll,ele)
+
+
+if __name__ == '__main__':
+    unittest.main()
