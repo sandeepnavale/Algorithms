@@ -32,3 +32,7 @@ class TestDoublyLinkedList(TestCase):
         c = str(dll)
         print(a,b,c)
         self.assertMultiLineEqual(a,c)
+
+
+if __name__ == "__main__":
+    unittest.main()
