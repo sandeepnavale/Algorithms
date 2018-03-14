@@ -15,12 +15,18 @@ def shortest_path(g, u, v):
         for neighbor in g[path[-1]]:
             if not neighbor in visited:
                 q.put(path+[neighbor])
+
     return -1
 
 assert shortest_path({'a': ['a']}, 'a', 'a') == ['a']
 assert shortest_path({'a': [], 'b': []}, 'a', 'b') == -1
-graph = {'a': ['b'], 'b': ['a', 'c', 'd'], 'c': ['b', 'd', 'e'], 'd': ['b', 'c', 'f'],
-     'e': ['c', 'f', 'g'], 'f': ['d', 'e', 'g'], 'g': ['e', 'f']}
+graph = {'a': ['b'],
+         'b': ['a', 'c', 'd'],
+         'c': ['b', 'd', 'e'],
+         'd': ['b', 'c', 'f'],
+         'e': ['c', 'f', 'g'],
+         'f': ['d', 'e', 'g'],
+         'g': ['e', 'f']}
 start = 'a'
 end = 'g'
 assert len(shortest_path(graph, start, end)) == 5
