@@ -8,7 +8,8 @@ def clockAngle(hour,min):
     print(abs(mm - hm))
 
 if __name__ == '__main__':
-    clockAngle(6,15)
-    clockAngle(12,55)
-    clockAngle(3,00)
-    clockAngle(4,00)
+    clockAngle(6, 15)
+    clockAngle(12, 55)
+    clockAngle(3, 00)
+    clockAngle(4, 00)
+    clockAngle(3, 5)
