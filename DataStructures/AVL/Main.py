@@ -4,6 +4,7 @@ AVL tree implementation.
 """
 
 import sys
+import random
 
 class Node(object):
     """A node in the tree."""
@@ -197,7 +198,7 @@ class AVLTree(object):
 if __name__ == '__main__':
     t=AVLTree()
     for i in range(20):
-        t.add(i)
+        t.add(random.randint(1,10))
 
     sys.stderr.write("root=%s\n" % str(t.root))
 

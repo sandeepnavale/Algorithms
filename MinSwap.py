@@ -1,4 +1,4 @@
-# Minimum Swaps required to group all 1’s together
+n# Minimum Swaps required to group all 1’s together
 t = int(input())
 for _ in range(t):
     n = int(input())

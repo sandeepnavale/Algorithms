@@ -20,3 +20,5 @@ print (quicksort(["","sandeep","nls","abc","az",'a']))
 a = [randint(10,100) for i in range(10)]
 print("Input List ",a)
 print("Sorted List ",quicksort(a))
+
+

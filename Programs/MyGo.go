@@ -11,4 +11,6 @@ func main() {
 		fmt.Print(" ", a1[i])
 		fmt.Print(a2[i])
 	}
+
+
 }

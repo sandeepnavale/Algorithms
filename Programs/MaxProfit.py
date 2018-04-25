@@ -1,4 +1,4 @@
-# Maximum Profit
+c# Maximum Profit
 # Given stock prices list, find maximum profit possible. You can buy and sell multiple times, but you can't hold more than one share at a time. Hint: the solution is really simple, but it's not easy to figure it out - go over some custom test cases by hand and try to see a pattern.
 #
 

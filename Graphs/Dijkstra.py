@@ -1,11 +1,12 @@
 # Dijkstra's Algorithm in Python.
 graph = {
-        'a': {'b': 10, 'c': 3},
-        'b': {'c': 1, 'd': 2},
-        'c': {'b': 4, 'd': 8, 'e': 2},
-        'd': {'e': 7},
-        'e': {'d': 9}
-        }
+    'a': {'b': 10, 'c': 3},
+    'b': {'c': 1, 'd': 2},
+    'c': {'b': 4, 'd': 8, 'e': 2},
+    'd': {'e': 7},
+    'e': {'d': 9}
+}
+
 
 def dijkstras(graph, start, end):
     shortest_dist = {}
@@ -21,7 +22,15 @@ def dijkstras(graph, start, end):
 
     while unseenNodes:
         minNode = None
+        i = 0
+        print('####')
         for node in unseenNodes:
+
+            # Temp Debug start
+            i += 1
+            print(node, i)
+            # Temp debug end
+
             if minNode is None:
                 minNode = node
             elif shortest_dist[node] < shortest_dist[minNode]:
@@ -49,5 +58,9 @@ def dijkstras(graph, start, end):
         print('Path is ', str(path))
 
 
-dijkstras(graph, 'a', 'd')
+dijkstras(graph, 'a', 'c')
+# dijkstras(graph, 'a', 'd')
+# dijkstras(graph, 'a', 'b')
+
+
 # dijkstras(graph, 'a', 'e')
