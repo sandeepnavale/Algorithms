@@ -13,9 +13,9 @@ if __name__ == "__main__":
     print("N = 2")
     genParen("", 2, 0)
 
-    print("N = 3")
-    genParen("", 3, 0)
-
-    print("N = 4")
-    genParen("",4,0)
-
+    # print("N = 3")
+    # genParen("", 3, 0)
+    #
+    # print("N = 4")
+    # genParen("",4,0)
+    #
