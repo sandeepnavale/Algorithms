@@ -29,6 +29,6 @@ best2 = 0
 for k in range(0, n):
     sum2 = max(arr[k], sum2 + arr[k])
     best2 = max(best2, sum2)
-
+q
 print(best2)
 print("Method 2 took", timeit.default_timer()-starttime2)
