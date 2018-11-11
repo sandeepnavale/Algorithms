@@ -91,7 +91,7 @@ def ED_DP_BottomUp(s,t):
     return dist[r][c]
 
 print("\n BOTTOM-UP DP APPROACH ")
-print(ED_DP_BottomUp("Python","Peithen"))
+print(ED_DP_BottomUp("Cat","Cow"))
 print(f"Function ED_DP_TopDown was called {str(ED_DP_BottomUp.calls)} times ")
 print(ED_DP_BottomUp.c.most_common())
 

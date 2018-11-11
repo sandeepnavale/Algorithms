@@ -32,3 +32,38 @@ def fibo_gen():
 
 
 next(fibo_gen())
+
+
+
+def getFibo(N):
+    v = [1,2]
+    while v[-1] < N:
+        v.append(v[-1]+v[-2])
+
+    return set(v)
+
+getFibo(500)
+
+# Fibo with dynamic programming
+from functools import wraps
+def memo(func):
+    cache = {}
+    @wraps(func)
+    def wrapper(*args):
+        if args not in cache:
+            cache[args] = func(*args)
+        return cache[args]
+    print(f'cache {cache}')
+    return wrapper
+
+def fibo(n):
+    if n < 2: return 1
+    return fibo(n-1)+fibo(n-2)
+
+
+@memo
+def fibo_dp(n):
+    if n<2: return 1
+    return fibo_dp(n-1) + fibo_dp(n-2)
+
+print(fibo_dp(10))
