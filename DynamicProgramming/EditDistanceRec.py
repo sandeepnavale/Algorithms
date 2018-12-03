@@ -69,7 +69,7 @@ print(ED_DP_TopDown.c.most_common())
 def ED_DP_BottomUp(s,t):
     rows = len(s)+1
     cols = len(t)+1
-    dist = [[0 for x in range(cols)] for x in range(rows)]
+    dist = [[0 for _ in range(cols)] for _ in range(rows)]
 
     # initialize base case
     for i in range(1,rows):
@@ -77,21 +77,24 @@ def ED_DP_BottomUp(s,t):
     for i in range(1,cols):
         dist[0][i] = i
 
+
     for c in range(1,cols):
         for r in range(1,rows):
             cost = 0 if s[r-1] == t[c-1] else 1
             dist[r][c] = min(dist[r-1][c] + 1, # Deletion
                              dist[r][c-1] + 1, # Insertion
                              dist[r-1][c-1] + cost) # substitution
-    # for debug info
+    # for DEBUG info
+    print('     ',end=' ')
+    tl = [x for x in t]
+    print('  '.join(tl))
     for row in range(len(dist)):
-        print(dist[row])
-
-
+        print(f'{s[row-1]} {dist[row]}')
+    # End DEBUG
     return dist[r][c]
 
 print("\n BOTTOM-UP DP APPROACH ")
-print(ED_DP_BottomUp("Cat","Cow"))
+print('Edit Distance needed is ',ED_DP_BottomUp("ABCDE","AXCDZ"))
 print(f"Function ED_DP_TopDown was called {str(ED_DP_BottomUp.calls)} times ")
 print(ED_DP_BottomUp.c.most_common())
 

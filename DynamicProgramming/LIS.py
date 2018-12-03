@@ -36,4 +36,5 @@ def lis_rec(seq):
 
     return max([lis(i) for i in range(len(seq))])
 
-print(f'lenght of LIS is {lis_rec([3,1,0,2,4])}' )
+print(f'length of LIS is {lis_rec([3,1,0,2,4])}' )
+print(f'length of LIS is {lis_rec([1,0,7,2,8,3,4,9])}' )
