@@ -1,8 +1,9 @@
+# this example is from CLRS.
 # Returns the best obtainable price for a rod of length n
 # and price[] as prices of different pieces
 
-from collections import defaultdict
 import unittest
+from collections import defaultdict
 
 
 def cutRodBf(price, n):
@@ -38,6 +39,27 @@ def cutRodBottomUpDP(p, n):
     return memo[n]
 
 
+def cutRod_BU_WithPieces(p, n):
+    """ Returns the maximum profit along with rod pieces."""
+    memo = defaultdict(int)
+    pieces = [0 for _ in range(n + 1)]
+    for i in range(1, n + 1): #n+1 as 0 is ignored
+        curProfit = 0
+        for j in range(1, i + 1): #i+1 as 0 is ignored
+            if curProfit < p[j] + memo[i-j]:
+                curProfit = p[j] + memo[i-j]
+                pieces[i] = j
+        memo[i] = curProfit
+
+    # print indexes
+    temp = n
+    op = []
+    while temp > 0:
+        # print(pieces[temp])
+        op.append((pieces[temp]))
+        temp = temp - pieces[temp]
+    # print(memo[n])
+    return memo[n], op
 
 
 class RodcutTestCase(unittest.TestCase):
@@ -60,6 +82,12 @@ class RodcutTestCase(unittest.TestCase):
         obtainedProfit = [cutRodBottomUpDP(priceList, i) for i in range(1, 11)]
         self.assertEqual(expectedProfit, obtainedProfit)
 
+    def testcutRod_BU_WithPieces(self):
+        priceList2 = [0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30]
+        self.assertEqual((18, [1, 6]), cutRod_BU_WithPieces(priceList2, 7))
+        self.assertEqual((30, [10]), cutRod_BU_WithPieces(priceList2, 10))
+        self.assertEqual((10, [2, 2]), cutRod_BU_WithPieces(priceList2, 4))
+
 
 if __name__ == '__main__':
     unittest.main()
@@ -67,7 +95,10 @@ if __name__ == '__main__':
     # Sample price list.
     # priceList = [1, 5, 8, 9, 10, 17, 17, 20, 24, 30]
     # for i in range(1, 11):
-    #     print("BF Maximum profit on length: \t", i, " is ", cutRodBf(priceList, i))
-    #     print("TD Maximum profit on length: \t", i, " is ", cutRodTopDownDP(priceList, i))
-    #     print("BU Maximum profit on length: \t", i, " is ", cutRodBottomUpDP(priceList, i))
-    #     print('\n')
+    # print("BF Maximum profit on length: \t", i, " is ", cutRodBf(priceList, i))
+    # print("TD Maximum profit on length: \t", i, " is ", cutRodTopDownDP(priceList, i))
+    # print("BU Maximum profit on length: \t", i, " is ", cutRodBottomUpDP(priceList, i))
+    # print("BU Maximum profit on length: \t", i, " is ", cutRod_BU_WithPieces(priceList, i))
+    # print('\n')
+    # priceList2 = [0,1, 5, 8, 9, 10, 17, 17, 20, 24, 30]
+    # print(cutRod_BU_WithPieces(priceList2, 7))
