@@ -1,5 +1,6 @@
 from random import randint
 
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -10,11 +11,9 @@ class Node:
         return str(self.value)
 
 
-
 class BST:
     def __init__(self):
         self.root = None
-
 
     def __repr__(self):
         self.sorted = []
@@ -27,7 +26,7 @@ class BST:
             self.sorted.append(str(node.value))
             self.get_inorder(node.right)
 
-    def get_preorder(self,node):
+    def get_preorder(self, node):
         if node:
             print(node.value)
             self.get_preorder(node.left)
@@ -51,21 +50,21 @@ class BST:
             else:
                 node.right = Node(value)
 
-    def height(self,node):
-        l=r=0
+    def height(self, node):
+        l = r = 0
         if node.left:
-           l = self.height(node.left)
+            l = self.height(node.left)
         if node.right:
-           r = self.height(node.right)
+            r = self.height(node.right)
 
-        return 1+max(l,r)
+        return 1+max(l, r)
 
-    def isBST(self,node):
-        return (self.isBSTUtil(node, 0, pow(10,4)))
+    def isBST(self, node):
+        return (self.isBSTUtil(node, 0, pow(10, 4)))
 
     # Retusn true if the given tree is a BST and its values
     # >= min and <= max
-    def isBSTUtil(self,node, mini, maxi):
+    def isBSTUtil(self, node, mini, maxi):
 
         # An empty tree is BST
         if node is None:
@@ -80,34 +79,43 @@ class BST:
         return (self.isBSTUtil(node.left, mini, node.value - 1) and
                 self.isBSTUtil(node.right, node.value + 1, maxi))
 
+    def printLevelOrder(self, root):
+        def printLevel(lvl, root):
+            if root:
+                if(lvl == 0):
+                    print(root.value, end=" ")
+                printLevel(lvl-1, root.left)
+                printLevel(lvl-1, root.right)
 
-    def printLevelOrder(self,root):
-        def printLevel(lvl,root):
-          if root:
-            if(lvl == 0):
-                print(root.value,end=" ")
-            printLevel(lvl-1,root.left)
-            printLevel(lvl-1,root.right)
-
-        h= self.height(self.root)
-        print("Level order of this tree of height ",h)
-        for i in range(0,h):
-            printLevel(lvl=i,root=self.root)
+        h = self.height(self.root)
+        print("Level order of this tree of height ", h)
+        for i in range(0, h):
+            printLevel(lvl=i, root=self.root)
             print('\n')
 
-    def find(self,node,key):
+    def find(self, node, key):
         found = False
         if node:
             if key == node.value:
                 found = True
                 return True
             elif key < node.value:
-                self.find(node.left,key)
+                self.find(node.left, key)
             else:
-                self.find(node.right,key)
+                self.find(node.right, key)
         return found
 
-
+    def inOrderIterative(self, root):
+        stack = []
+        node = root
+        while stack or node:
+            if node:
+                stack.append(node)
+                node = node.left
+            else:
+                node = stack.pop()
+                print(node.value, end=' ')
+                node = node.right
 
 
 if __name__ == '__main__':
@@ -115,11 +123,11 @@ if __name__ == '__main__':
 
     for i in range(10):
         ele = randint(1, 100)
-        print(ele,end=' ')
+        print(ele, end=' ')
         bst.add(ele)
 
     print("\n INORDER ->", end=' ')
-    print (bst)
+    print(bst)
 
     # bst.get_preorder(bst.root)
     print(bst.height(bst.root))
@@ -128,3 +136,5 @@ if __name__ == '__main__':
     # print(bst.find("Finding 33 in BST ",bst.find(bst.root,33)))
 
     print("Is this Tree BST? ", bst.isBST(bst.root))
+
+    bst.inOrderIterative(bst.root)

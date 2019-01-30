@@ -2,8 +2,6 @@
 from itertools import combinations
 import timeit
 
-
-
 # Longest increasing subsequence -- Brute force
 def lis_bruteforce(seq):
     for length in range(len(seq),0,-1):
