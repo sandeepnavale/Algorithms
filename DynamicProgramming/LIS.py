@@ -36,3 +36,4 @@ def lis_rec(seq):
 
 print(f'length of LIS is {lis_rec([3,1,0,2,4])}' )
 print(f'length of LIS is {lis_rec([1,0,7,2,8,3,4,9])}' )
+print(f'length of LIS is {lis_rec([11,32,4,22,5,6])}' )
