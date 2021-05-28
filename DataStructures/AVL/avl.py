@@ -43,8 +43,7 @@ class Node(object):
         return True
 
     def __str__(self):
-        return "<Node val=%s balance=%d>" \
-            % (str(self.value), self.balance_factor)
+        return "<Node val=%s balance=%d>" % (str(self.value), self.balance_factor)
 
 
 class AVLTree(object):
@@ -194,16 +193,14 @@ class AVLTree(object):
         for node in self.preorder(lambda n: n):
             f.write("\t// %s\n" % str(node))
             if node.left:
-                f.write('\t%s -> %s [label = "l"];\n' %
-                        (node.value, node.left.value))
+                f.write('\t%s -> %s [label = "l"];\n' % (node.value, node.left.value))
             if node.right:
-                f.write('\t%s -> %s [label = "r"];\n' %
-                        (node.value, node.right.value))
+                f.write('\t%s -> %s [label = "r"];\n' % (node.value, node.right.value))
 
         f.write("}\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     t = AVLTree()
     for i in range(20):
         t.add(i)
